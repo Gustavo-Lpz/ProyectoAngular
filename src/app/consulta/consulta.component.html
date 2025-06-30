@@ -1,0 +1,22 @@
+<div class="consulta d-flex justify-content-center">
+
+    @if (doctor !== null) {
+        <div class="card p-3 mt-4 d-felx flex-row">
+             <img [src]="doctor.foto" class="img-thumbnail me-3" alt="Foto del doctor">
+             <div>
+                <h5 class="card-title mb-2">{{ doctor.nombre }}</h5>
+                <p class="mb-1"><strong>ID: </strong>{{ doctor.id }}</p>
+                <p class="mb-1"><strong>Especialidad: </strong>{{ doctor.especialidad }}</p>
+                <p class="mb-1"><strong>Años de Experiencia:</strong>{{ doctor.aniosExperiencia }}</p>
+                <p class="mb-1"><strong>Ciudad: </strong>{{ doctor.ciudad }}</p>
+                <p class="mb-1"><strong>Teléfono: </strong>{{ doctor.telefono }}</p>
+
+             </div>
+        </div>
+    } @else {
+        <div class="alert alert-warning mt-4" role="alert">
+            No se encontró ningún doctor con el ID proporcionado. {{id}}
+        </div>
+    }
+
+ 
