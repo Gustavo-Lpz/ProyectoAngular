@@ -32,18 +32,19 @@ create(empleado: Doctores): void {
   this.empleados.push(empleado);
 }
 
-update(id: number, empleado: Partial<Doctores>): void {
-  const index = this.empleados.findIndex(e => e.id === id);
+update(objeto: Doctores): void {
+  const index = this.empleados.findIndex(emp => emp.id === objeto.id);
   if (index !== -1) {
-    this.empleados[index] = { ...this.empleados[index], ...empleado };
+    this.empleados[index] = objeto;
+    localStorage.setItem('trabajadores', JSON.stringify(this.empleados));
   }
 }
 
-delete(id: number): void {
-  const index = this.empleados.findIndex(e => e.id === id);
-  if (index !== -1) {
-    this.empleados.splice(index, 1);
-    localStorage
-   }
+delete(idEmp: number): void {
+  const index = this.empleados.findIndex(emp => emp.id === idEmp);
+  if (index!== -1){
+    this.empleados.splice(index,1);
+    localStorage.setItem('trabajadores', JSON.stringify(this.empleados));
   }
+}
 }
